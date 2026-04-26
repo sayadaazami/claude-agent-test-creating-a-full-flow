@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "Apollo-like",
+    "_postman_id": "apollo-like-v1",
+    "description": "API contract for the Apollo-like project. Maintained daily by backend-dev-1 (search) and backend-dev-2 (auth/lists/exports). Frontend devs use the Examples here as mock responses while backend is being built.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "People",
+      "description": "Search and detail endpoints for people. Owned by backend-dev-1.",
+      "item": []
+    },
+    {
+      "name": "Companies",
+      "description": "Search and detail endpoints for companies. Owned by backend-dev-1.",
+      "item": []
+    },
+    {
+      "name": "Auth & Me",
+      "description": "Auth.js endpoints + current-user routes. Owned by backend-dev-2.",
+      "item": []
+    },
+    {
+      "name": "Lists",
+      "description": "Saved lists CRUD, items, and sharing. Owned by backend-dev-2.",
+      "item": []
+    },
+    {
+      "name": "Exports",
+      "description": "CSV export endpoints. Owned by backend-dev-2.",
+      "item": []
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000" },
+    { "key": "api_version", "value": "v1" }
+  ]
+}
