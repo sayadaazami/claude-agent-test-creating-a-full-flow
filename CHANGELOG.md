@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `scripts/bootstrap.sh` — one-shot setup: checks node/pnpm, installs gh, authenticates, runs the sync, refreshes STATUS. Idempotent.
 - `scripts/commit-task.sh` — dev/devops agents now auto-commit per task with `Refs #N` linkage to GitHub Issues
 - `scripts/sync-tasks-to-github.sh` — one-time migration of `docs/tasks.md` → GitHub Issues + Projects v2 board, idempotent re-syncing
 - `.github/task-issue-map.tsv` (generated) — maps TASK-IDs to issue numbers

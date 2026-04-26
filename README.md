@@ -82,19 +82,15 @@ Tasks live in two places:
 
 When an agent commits a task with `bash scripts/commit-task.sh TASK-XXX "title"`, the commit body contains `Refs #N` so the linked GitHub Issue is auto-referenced.
 
-### One-time setup (humans, requires `gh` CLI)
+### One-time setup
+
+Run the bootstrap script — it handles everything (gh install, auth, sync, status refresh):
 
 ```bash
-# 1) install + auth (Linux)
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/etc/apt/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update && sudo apt install gh
-gh auth login
-gh auth refresh -s project,read:project,repo
-
-# 2) run the migration (idempotent — safe to re-run)
-bash scripts/sync-tasks-to-github.sh
+bash scripts/bootstrap.sh
 ```
+
+It is idempotent: re-running just re-syncs the GitHub board.
 
 This creates: 21 labels (8 phases + 3 priorities + 10 owners + type-task), 79 Issues (one per task), one Projects v2 board ("Apollo-like") with Status column = Backlog/Todo/Doing/Review/Done, and writes `.github/task-issue-map.tsv` so future commits can `Refs #N`.
 
