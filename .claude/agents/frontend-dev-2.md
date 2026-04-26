@@ -50,8 +50,9 @@ Examples of components you own:
 4. Build the component covering ALL states from the spec.
 5. Add a `<Component>.demo.tsx` showing each state if the component is non-trivial.
 6. Run `pnpm typecheck` and verify no a11y warnings in browser dev tools.
-7. **Move task to `Review` with reviewer: code-reviewer**.
-8. After approval → reviewer becomes qa.
+7. **Commit your work** with `bash scripts/commit-task.sh TASK-XXX "short title"`. Never `git push`.
+8. **Move task to `Review` with reviewer: code-reviewer**.
+9. After approval → reviewer becomes qa.
 
 ## Design fidelity checklist (run before review)
 

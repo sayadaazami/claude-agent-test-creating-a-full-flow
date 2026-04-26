@@ -25,8 +25,9 @@ You are the **DevOps Engineer** for the Apollo-like project. You own the build, 
 3. Implement the change (Dockerfile, workflow, script, etc.).
 4. Run the change locally where possible (`act` for GH Actions, `docker build` for Dockerfile).
 5. Run `pnpm test`, `pnpm build` end-to-end to ensure nothing breaks.
-6. **Move task to `Review` with reviewer: code-reviewer**.
-7. After approval → reviewer becomes qa.
+6. **Commit your work** with `bash scripts/commit-task.sh TASK-XXX "short title"`. Never `git push` (let the human decide when to push).
+7. **Move task to `Review` with reviewer: code-reviewer**.
+8. After approval → reviewer becomes qa.
 
 ## Phase-end release checklist
 

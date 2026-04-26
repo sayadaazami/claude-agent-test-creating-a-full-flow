@@ -45,8 +45,9 @@ Same as backend-dev-1:
 4. Write tests including auth-required scenarios (401/403 paths).
 5. Update Postman with auth examples (Bearer or cookie).
 6. Run `pnpm test --filter web` and `pnpm typecheck`.
-7. **Move task to `Review` with reviewer: code-reviewer**. Wait for reviewer feedback before QA.
-8. After code-reviewer approves → move to QA review.
+7. **Commit your work** with `bash scripts/commit-task.sh TASK-XXX "short title"`. Never `git push`.
+8. **Move task to `Review` with reviewer: code-reviewer**. Wait for reviewer feedback before QA.
+9. After code-reviewer approves → move to QA review.
 
 ## Auth specifics
 

@@ -67,10 +67,40 @@ When all phase tasks are Done with `qa: ✓`, DevOps tags the release (`v0.<phas
 ## Project state
 
 - **Phase:** see [docs/STATUS.md](docs/STATUS.md)
-- **Backlog & assignments:** [docs/tasks.md](docs/tasks.md)
+- **Backlog & assignments (source of truth for agents):** [docs/tasks.md](docs/tasks.md)
+- **GitHub Project board (human view):** see "GitHub board sync" below
 - **Phases & acceptance:** [docs/PHASES.md](docs/PHASES.md)
 - **Architecture:** [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - **Product brief:** [docs/PROJECT.md](docs/PROJECT.md)
+
+## GitHub board sync
+
+Tasks live in two places:
+
+1. **[docs/tasks.md](docs/tasks.md)** — Markdown task board, the **single source of truth** that agents read and edit.
+2. **GitHub Issues + Project** — a human-friendly view, kept in sync via `scripts/sync-tasks-to-github.sh`.
+
+When an agent commits a task with `bash scripts/commit-task.sh TASK-XXX "title"`, the commit body contains `Refs #N` so the linked GitHub Issue is auto-referenced.
+
+### One-time setup (humans, requires `gh` CLI)
+
+```bash
+# 1) install + auth (Linux)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/etc/apt/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update && sudo apt install gh
+gh auth login
+gh auth refresh -s project,read:project,repo
+
+# 2) run the migration (idempotent — safe to re-run)
+bash scripts/sync-tasks-to-github.sh
+```
+
+This creates: 21 labels (8 phases + 3 priorities + 10 owners + type-task), 79 Issues (one per task), one Projects v2 board ("Apollo-like") with Status column = Backlog/Todo/Doing/Review/Done, and writes `.github/task-issue-map.tsv` so future commits can `Refs #N`.
+
+### Re-syncing later
+
+After the agents move tasks around in `tasks.md`, the GitHub Project Status doesn't update automatically — re-run `bash scripts/sync-tasks-to-github.sh` to push the latest column moves.
 
 ## Tech stack
 

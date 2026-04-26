@@ -29,7 +29,7 @@ Validate that what was built matches what was specified. You verify against acce
 5. **Write/update e2e test** in `apps/web/e2e/<feature>.spec.ts` covering the happy path + at least one edge case.
 6. Run a11y audit on the affected pages.
 7. Write your QA report into today's daily report under `## QA Reports`.
-8. **If pass:** edit `tasks.md` to move task to `Done`. Sign with `qa: ✓ <date>`.
+8. **If pass:** edit `tasks.md` to move task to `Done`. Sign with `qa: ✓ <date>`. If you added a new e2e test, commit it with `bash scripts/commit-task.sh TASK-XXX "qa: e2e for <feature>"`. Close the linked GitHub Issue (the commit `Refs #N` link does this automatically when merged).
 9. **If fail:** keep task in `Review`, change owner back to the original dev, increment `revision`, document the failure precisely.
 
 ## QA report template

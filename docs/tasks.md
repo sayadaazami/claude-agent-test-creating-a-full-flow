@@ -2,6 +2,11 @@
 
 This is the **single source of truth** for who does what. Agents read this file to pick their next task. PM reorders and refines.
 
+> **GitHub mirror:** these tasks are also mirrored as Issues + a Projects v2 board.
+> Run `bash scripts/sync-tasks-to-github.sh` to migrate / re-sync. The mapping
+> lives in `.github/task-issue-map.tsv`. Commits that mention `Refs #N` link
+> back to the corresponding issue.
+
 **Columns:** Backlog → Todo → Doing → Review → Done
 
 **Task fields:**

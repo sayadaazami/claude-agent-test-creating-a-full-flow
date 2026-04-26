@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `scripts/commit-task.sh` — dev/devops agents now auto-commit per task with `Refs #N` linkage to GitHub Issues
+- `scripts/sync-tasks-to-github.sh` — one-time migration of `docs/tasks.md` → GitHub Issues + Projects v2 board, idempotent re-syncing
+- `.github/task-issue-map.tsv` (generated) — maps TASK-IDs to issue numbers
+- README section on GitHub board sync workflow
+- Auto-commit step added to: backend-dev-1, backend-dev-2, frontend-dev-1, frontend-dev-2, devops, qa
+
 ## [v0.0.0] — 2026-04-26 — Phase 0: Agent Team Scaffolding
 
 ### Added

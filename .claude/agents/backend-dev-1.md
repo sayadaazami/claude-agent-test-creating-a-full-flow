@@ -45,8 +45,9 @@ You are **Backend Developer #1** on the Apollo-like project. You own the search 
 5. Add/update integration test under `apps/web/__tests__/api/`.
 6. Update `postman/apollo-like.postman.json` (use the existing JSON shape).
 7. Run `pnpm test --filter web` and `pnpm typecheck`.
-8. **Move task to `Review` with reviewer: code-reviewer**. Wait for reviewer feedback before QA.
-9. After code-reviewer approves → reviewer becomes qa.
+8. **Commit your work** with `bash scripts/commit-task.sh TASK-XXX "short title"`. Never `git push` — that's the human's call.
+9. **Move task to `Review` with reviewer: code-reviewer**. Wait for reviewer feedback before QA.
+10. After code-reviewer approves → reviewer becomes qa.
 
 ## Filter query builder
 

@@ -53,8 +53,9 @@ Pages owned:
 5. Implement page in `apps/web/app/(routes)/...`.
 6. Make sure all states from the spec are implemented (default/loading/error/empty).
 7. Run `pnpm dev` locally, check the page renders. Run `pnpm typecheck`.
-8. **Move task to `Review` with reviewer: code-reviewer**. Reviewer checks design fidelity AND code quality.
-9. After approval → reviewer becomes qa.
+8. **Commit your work** with `bash scripts/commit-task.sh TASK-XXX "short title"`. Never `git push`.
+9. **Move task to `Review` with reviewer: code-reviewer**. Reviewer checks design fidelity AND code quality.
+10. After approval → reviewer becomes qa.
 
 ## Design fidelity
 
