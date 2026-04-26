@@ -105,10 +105,11 @@ else
   gh auth login
 fi
 
-# Make sure project scope is granted
-if ! gh auth status 2>&1 | grep -qE "project|read:project"; then
-  warn "project scope missing — refreshing"
-  gh auth refresh -s project,read:project,repo
+# Make sure project scope is granted (Projects v2 needs this)
+if ! gh auth status 2>&1 | grep -qE "'project'|read:project"; then
+  warn "project scope missing — refreshing (interactive)"
+  info "Your browser will open. Approve the request to add 'project' scope."
+  gh auth refresh -h github.com -s project,read:project,repo
 else
   ok "scopes OK (includes project)"
 fi
